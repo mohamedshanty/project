@@ -194,7 +194,6 @@ const sr = ScrollReveal({
   duration: 1000,
   distance: "50px",
   reset: false,
-  delay: 100,
 });
 
 const servicesImages = document.querySelectorAll(".services-img");

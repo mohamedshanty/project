@@ -100,14 +100,22 @@ header {
   color: #333;
   padding: 15px 0;
   position: fixed;
-  z-index: 1000;
+  z-index: 999;
   width: 100%;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  transition: top 0.3s ease-in-out;
+  top: 0;
 }
 
 header .container {
   display: flex;
   align-items: center;
+}
+
+@media (max-width: 1200px) {
+  header .container {
+    justify-content: space-between;
+  }
 }
 
 header .logo img {
@@ -116,6 +124,80 @@ header .logo img {
 
 header .container nav {
   flex: 1;
+}
+
+header .container nav .logo {
+  display: none;
+}
+
+header .container .bars {
+  display: none;
+  height: fit-content;
+  cursor: pointer;
+  padding: 3px 8px;
+  border-radius: 5px;
+  transition: var(--main-transition);
+}
+
+header .container .bars:hover {
+  background-color: #f6f4ff;
+}
+
+header .container .bars div {
+  width: 30px;
+  height: 2px;
+  margin: 6px 0;
+  background-color: #212526;
+}
+
+@media (max-width: 1200px) {
+  header .container .bars {
+    display: block;
+  }
+}
+
+@media (max-width: 1200px) {
+  header .container nav {
+    position: absolute;
+    right: -300px;
+    top: 0;
+    z-index: 9999999;
+    padding-top: 20px;
+    padding-right: 10px;
+    width: 280px;
+    height: 100vh;
+    background-color: white;
+    transition: var(--main-transition);
+    box-shadow: 2px 0 20px 0 rgb(0, 0, 0, 0.05);
+  }
+  header .container nav .logo {
+    display: block;
+    width: 110px;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+  }
+  header .container .bars {
+    display: block;
+  }
+  header .container nav ul {
+    display: block;
+    padding: 0 20px;
+    margin-top: 30px;
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  header .container nav ul li {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
 }
 
 nav ul {
@@ -131,9 +213,24 @@ nav li {
 }
 
 nav a {
-  text-decoration: none;
   color: #333;
   font-weight: 500;
+  transition: var(--main-transition);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 999;
+}
+
+body.menu-open {
+  overflow: hidden;
 }
 /* End header */
 
@@ -148,6 +245,7 @@ nav a {
   max-width: 100%;
   background-image: url(../Image/landing-page-2.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
   height: 120vh;
 }
 /* End Landing */
@@ -158,6 +256,12 @@ nav a {
   background-size: cover;
   position: relative;
   height: 400px;
+}
+
+@media (max-width: 767px) {
+  .definition {
+    height: 500px;
+  }
 }
 
 .definition::after {
@@ -175,15 +279,20 @@ nav a {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
   z-index: 10;
+  top: 20%;
   line-height: var(--main-line-height);
-  width: 75%;
+}
+
+@media (max-width: 767px) {
+  .definition .def {
+    width: 100%;
+    top: 15%;
+  }
 }
 
 .definition .def p {
@@ -249,6 +358,12 @@ nav a {
   .advantages .container {
     flex-direction: column;
   }
+  .advantages .container .image img {
+    width: 100%;
+  }
+  .advantages .container .our-advantages {
+    margin: 10%;
+  }
 }
 
 .advantages .container .our-advantages {
@@ -272,16 +387,17 @@ nav a {
 .latest-business {
   padding-top: var(--main-padding-top);
   position: relative;
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column; */
 }
 
 .latest-business .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 25px;
+  margin: 0 auto;
 }
 
 .latest-business .container .image {
@@ -292,8 +408,13 @@ nav a {
 
 .latest-business .container .image img {
   width: 100%;
-  max-width: 100%;
   transition: transform 0.3s ease;
+}
+
+@media (max-width: 767px) {
+  .latest-business .container .image {
+    width: 100%;
+  }
 }
 
 .latest-business .container .image:hover img {
@@ -414,6 +535,26 @@ nav a {
   background-color: var(--main-color);
 }
 
+@media (max-width: 991px) {
+  .stats .contant {
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .stats .contant .customers-number,
+  .stats .contant .project-number,
+  .stats .contant .year-number {
+    width: 90% !important;
+  }
+  .stats .contant {
+    background-color: white;
+  }
+  .stats .contant .customers-number:hover,
+  .stats .contant .project-number:hover,
+  .stats .contant .year-number:hover {
+    transform: none !important;
+  }
+}
+
 .stats .contant .customers-number,
 .stats .contant .project-number,
 .stats .contant .year-number {
@@ -481,6 +622,15 @@ nav a {
   gap: 30px;
 }
 
+@media (max-width: 991px) {
+  .articles .container .content {
+    flex-direction: column;
+  }
+  .articles .container .content .art {
+    width: 80% !important;
+  }
+}
+
 .articles .container .content .art {
   width: 25%;
 }
@@ -527,8 +677,6 @@ nav a {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  padding-left: 30%;
-  padding-right: 30%;
 }
 
 .contact-us .container .form form .name,
@@ -550,10 +698,27 @@ nav a {
 
 .contact-us .container .form form input,
 .contact-us .container .form form textarea {
-  width: 600px;
+  width: 100%;
   padding: 10px;
   border: none;
   margin-top: 7px;
+}
+
+@media (max-width: 767px) {
+  .contact-us .container .form form input,
+  .contact-us .container .form form textarea {
+    width: 400px !important;
+  }
+  .contact-us .container .form form textarea {
+    min-width: 90% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-us .container .form form input,
+  .contact-us .container .form form textarea {
+    width: 250px !important;
+  }
 }
 
 .contact-us .container .form form textarea {
@@ -643,7 +808,7 @@ footer .container .logo {
 footer .container .logo img {
   display: block;
   margin: 0 auto 30px;
-  width: 15%;
+  width: 110px;
   max-width: 100%;
 }
 
@@ -652,6 +817,13 @@ footer .container .contact {
   align-items: center;
   gap: 400px;
   margin-bottom: 50px;
+}
+
+@media (max-width: 767px) {
+  footer .container .contact {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
 footer .container .contact .phone p {
@@ -897,6 +1069,7 @@ footer .container .end {
 
 .articles .content1 .art {
   width: 100% !important;
+  margin-bottom: 20px;
 }
 
 .pagination {

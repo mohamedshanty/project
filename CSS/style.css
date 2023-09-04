@@ -863,6 +863,7 @@ footer .container .social i:hover {
 
 footer .container .end {
   text-align: center;
+  line-height: var(--main-line-height);
 }
 /* End Footer */
 

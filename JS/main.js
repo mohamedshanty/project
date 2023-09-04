@@ -191,7 +191,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // Start download page items gradually when I do scroll down in js
 // Scroll Reveal
 const sr = ScrollReveal({
-  duration: 1000,
   distance: "50px",
   reset: false,
 });

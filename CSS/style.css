@@ -177,6 +177,27 @@ header .container .bars div {
     align-items: center;
     margin-left: 30px;
   }
+  header .container .nav-en {
+    position: absolute;
+    left: -300px;
+    top: 0;
+    z-index: 9999999;
+    padding-top: 20px;
+    padding-right: 10px;
+    width: 280px;
+    height: 100vh;
+    background-color: white;
+    transition: var(--main-transition);
+    box-shadow: 2px 0 20px 0 rgb(0, 0, 0, 0.05);
+    /* animation-duration: ; */
+  }
+  header .container .nav-en .logo {
+    display: block;
+    width: 110px;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+  }
   header .container .bars {
     display: block;
   }
@@ -242,11 +263,25 @@ body.menu-open {
 
 .landing .landing-image {
   width: 100%;
-  max-width: 100%;
   background-image: url(../Image/landing-page-2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   height: 120vh;
+}
+
+@media (max-width: 767px) {
+  .landing .landing-image {
+    width: 100%;
+    background-image: url(../Image/landing-page-2.jpg);
+    background-size: cover;
+    height: 50vh !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .landing .landing-image {
+    height: 80vh;
+  }
 }
 /* End Landing */
 /* Start definition */
@@ -260,6 +295,9 @@ body.menu-open {
 
 @media (max-width: 767px) {
   .definition {
+    background-image: url(../image/الخلفية-02-min.jpg);
+    background-size: cover;
+    position: relative;
     height: 500px;
   }
 }
@@ -475,48 +513,137 @@ body.menu-open {
 /* End Latest Business */
 
 /* Start Customers */
-.customers {
-  padding-top: var(--main-padding-top);
-  padding-bottom: var(--main-padding-bottom);
-  position: relative;
-}
 
-.customers .container {
+.wrapper {
+  width: 100%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
-  overflow-x: scroll;
+  flex-direction: column;
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  margin: 0 auto;
 }
 
-.customers .container::-webkit-scrollbar {
-  display: none;
+@media (max-width: 1200px) {
+  .wrapper .container {
+    width: 90%;
+  }
 }
 
-.customers .container .control {
+@media (max-width: 991px) {
+  .wrapper .container {
+    width: 100%;
+  }
+}
+
+.wrapper .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+
+.wrapper i {
   cursor: pointer;
+  font-size: 25px;
+  position: absolute;
+  text-align: center;
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
 }
 
-.customers .container .control:hover {
+.wrapper i:hover {
   color: var(--main-color);
 }
 
-.customers .container .image {
+.wrapper i:active {
+  transform: translateY(-50%) scale(0.85);
+}
+
+.wrapper i:first-child {
+  left: 10%;
+}
+
+.wrapper i:last-child {
+  right: 10%;
+}
+
+.wrapper .carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 5));
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  border-radius: 8px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
   display: none;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  transform: translateX(-100%);
-  opacity: 0;
 }
 
-.customers .container .image.active {
-  display: block;
-  transform: translateX(0);
-  opacity: 1;
+.carousel.no-transition {
+  scroll-behavior: auto;
 }
 
-.customers .container .image img {
-  width: 50%;
-  max-width: 100%;
+.carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.carousel.dragging .card {
+  cursor: grab;
+  user-select: none;
+}
+
+.carousel :where(.card, .img) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel .card {
+  scroll-snap-align: start;
+  list-style: none;
+  padding-bottom: 15px;
+}
+
+.carousel .card .img {
+  height: 100px;
+  width: 80%;
+}
+
+.card .img img {
+  width: 70%;
+  object-fit: cover;
+  opacity: 80%;
+  transition: var(--main-transition);
+}
+
+.card .img img:hover {
+  opacity: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper .carousel {
+    grid-auto-columns: calc((100% / 4));
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .wrapper .carousel {
+    grid-auto-columns: calc((100% / 3));
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper .carousel {
+    grid-auto-columns: calc((100% / 2));
+  }
 }
 /* End Customers */
 
@@ -737,6 +864,13 @@ body.menu-open {
 .contact-us .container .form form textarea:focus {
   border: none;
   outline: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
 }
 
 .contact-us .container .form form label {

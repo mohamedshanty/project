@@ -15,9 +15,15 @@
         rel="stylesheet">
     <!-- Normalize -->
     <link rel="stylesheet" href="CSS/Normalize.css">
+    <!-- Light Box 2 -->
+    <link rel="stylesheet" href="CSS/lightbox.css">
     <!-- Logo In Tap -->
     <link rel="icon" type="png" href="Image/logo-1-min.png">
+    <!-- Scroll Reveal Library -->
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <title>الرئيسية-متوج للخدمات التسويقية والانتاج </title>
 
 </head>
@@ -160,29 +166,50 @@
         </div>
         <div class="container">
 
-            <div class="image">
-                <img src="Image/identity-banner-03-min-370x250.jpg" alt="معرض الصور">
+            <div class="modal" id="imageModal">
+                <span class="close" id="closeModal">&times;</span>
+                <i class="fa-solid fa-expand fill-screen" id="fullscreenButton"></i>
+                <img class="modal-content" id="modalImage">
+                <span class="next" id="nextImage">&#10095;</span>
+                <span class="prev" id="prevImage">&#10094;</span>
             </div>
 
 
+
             <div class="image">
-                <img src="Image/Photography-banner-01-min-370x250.jpg" alt="معرض الصور">
+                <div class="image-inner">
+                    <img src="Image/identity-banner-03-min-370x250.jpg">
+                </div>
             </div>
 
             <div class="image">
-                <img src="Image/Photography-banner-03-min-370x250.jpg" alt="معرض الصور">
+                <div class="image-inner">
+                    <img src="Image/Photography-banner-01-min-370x250.jpg">
+                </div>
             </div>
 
             <div class="image">
-                <img src="Image/social-banner-02-min-370x250.jpg" alt="معرض الصور">
+                <div class="image-inner">
+                    <img src="Image/Photography-banner-03-min-370x250.jpg">
+                </div>
             </div>
 
             <div class="image">
-                <img src="Image/social-banner-03-min-370x250.jpg" alt="معرض الصور">
+                <div class="image-inner">
+                    <img src="Image/social-banner-02-min-370x250.jpg">
+                </div>
             </div>
 
             <div class="image">
-                <img src="Image/social-banner-05-min-370x250.jpg" alt="معرض الصور">
+                <div class="image-inner">
+                    <img src="Image/social-banner-03-min-370x250.jpg">
+                </div>
+            </div>
+
+            <div class="image">
+                <div class="image-inner">
+                    <img src="Image/social-banner-05-min-370x250.jpg">
+                </div>
             </div>
 
         </div>
@@ -192,12 +219,14 @@
     </div>
     <!-- End Latest Business -->
     <hr style="opacity: 30%;">
+
+
     <!-- Start Our Customers -->
     <div class="wrapper">
         <div class="title">
             <p data-i18n="عملائنا">عملائنا</p>
         </div>
-        <!-- <div class="container">
+        <div class="container">
 
             <i id="left" class="fa-solid fa-angle-left"></i>
             <ul class="carousel">
@@ -205,7 +234,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill1.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-16-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -213,7 +242,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill2.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-15-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -221,7 +250,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill3.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-23-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -229,7 +258,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill4.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-1-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -237,7 +266,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill5.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-19-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -245,7 +274,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill6.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-2-min-1.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -253,7 +282,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill7.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-9-min-1.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -261,7 +290,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill8.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-11-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -269,7 +298,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill9.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-30-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -277,7 +306,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill10.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-34-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -285,7 +314,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill11.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-3-min-1.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -293,7 +322,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill12.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-25-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -301,7 +330,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill13.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-18-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -309,7 +338,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill14.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-31-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -317,7 +346,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill15.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-26-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -325,7 +354,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill16.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-21-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -333,7 +362,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill17.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-10-min-1.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -341,7 +370,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill18.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-5-min-1.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -349,7 +378,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill19.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-12-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -357,7 +386,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill20.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-24-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -365,7 +394,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill21.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-17-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -373,7 +402,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill22.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-36-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -381,7 +410,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill23.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-7-min-1.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -389,7 +418,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill24.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-29-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -397,7 +426,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill25.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-28-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -405,7 +434,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill26.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-27-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -413,7 +442,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill27.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-14-min.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -421,7 +450,7 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill28.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-6-min-1.png" alt="">
                         </a>
                     </div>
                 </li>
@@ -429,112 +458,90 @@
                 <li class="card">
                     <div class="img">
                         <a href="#">
-                            <img src="Image/shufill29.png" alt="">
+                            <img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-35-min.png" alt="">
                         </a>
                     </div>
                 </li>
 
             </ul>
             <i id="right" class="fa-solid fa-angle-right"></i>
-        </div> -->
+        </div>
     </div>
-    <!-- 
+
+
+
+    <!-- Start Our Customers
     <div class="customers">
         <div class="title">
             <p>عملائنا</p>
         </div>
         <div class="container">
-
             <i class="fas fa-angle-right control" id="nextBtn"></i>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-16-min.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-15-min.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-23-min.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-1-min.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-19-min.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-2-min-1.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-9-min-1.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-11-min.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-30-min.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-34-min.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-3-min-1.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-25-min.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-18-min.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-31-min.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-26-min.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-10-min-1.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-5-min-1.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-12-min.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-24-min.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-17-min.png" alt=""></a>
             </div>
-
             <div class="image">
                 <a href="#"><img src="https://motawaj.com/wp-content/uploads/2022/07/Asset-36-min.png" alt=""></a>
             </div>
-
             <i class="fas fa-angle-left control" id="prevBtn"></i>
-
         </div>
-
     </div> -->
     <!-- End Our Customers -->
     <!-- Start Stats -->
@@ -699,9 +706,14 @@
     <!-- End Scroll To Top -->
 
 
-    <!-- <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://unpkg.com/scrollreveal@4.3.2/dist/scrollreveal.min.js"></script> -->
+
+
+    <script src="JS/lightbox-plus-jquery.js"></script>
 
     <script src="JS/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 
 </html>

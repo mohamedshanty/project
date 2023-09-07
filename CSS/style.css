@@ -262,7 +262,6 @@ body.menu-open {
 }
 
 .landing .landing-image {
-  width: 100%;
   background-image: url(../Image/landing-page-2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -370,6 +369,9 @@ body.menu-open {
 .services .container .services-img img {
   width: 50%;
   max-width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  mix-blend-mode: color;
 }
 
 .services .container .services-img:hover {
@@ -425,10 +427,6 @@ body.menu-open {
 .latest-business {
   padding-top: var(--main-padding-top);
   position: relative;
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column; */
 }
 
 .latest-business .container {
@@ -436,6 +434,7 @@ body.menu-open {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 25px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .latest-business .container .image {
@@ -446,12 +445,22 @@ body.menu-open {
 
 .latest-business .container .image img {
   width: 100%;
+  max-width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  mix-blend-mode: color;
   transition: transform 0.3s ease;
 }
 
 @media (max-width: 767px) {
-  .latest-business .container .image {
-    width: 100%;
+  .latest-business .container .image img {
+    width: 90%;
+    max-width: 90%;
+    display: block;
+    margin: 0 auto;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    mix-blend-mode: color;
   }
 }
 
@@ -459,7 +468,7 @@ body.menu-open {
   transform: scale(1.05);
 }
 
-.latest-business .container .image:hover::before {
+/* .latest-business .container .image:hover::before {
   content: "";
   position: absolute;
   top: 0;
@@ -480,6 +489,13 @@ body.menu-open {
     rgba(218, 160, 104, 90%)
   );
 }
+
+@media (max-width: 767px) {
+  .latest-business .container .image:hover::before,
+  .latest-business .container .image:hover::after {
+    display: none;
+  }
+} */
 
 .latest-business .container .image:hover::after {
   content: "+";
@@ -510,6 +526,81 @@ body.menu-open {
   border-radius: 6px;
   cursor: pointer;
 }
+
+/* CSS لنافذة العرض المكبرة */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+.modal-content {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 100%;
+  transform: scale(1); /* تكبير ابتدائي */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* انتقال تدريجي للتكبير والشفافية */
+  opacity: 0; /* بدء بشفافية منخفضة */
+}
+
+/* CSS لزر الإغلاق */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+/* CSS لأزرار الأسهم */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  transition: 0.3s;
+}
+
+.prev {
+  left: 20px;
+  transform: rotate(180deg);
+}
+
+.next {
+  right: 20px;
+  transform: rotate(180deg);
+}
+
+.prev:hover,
+.next:hover {
+  color: #ccc;
+}
+
+/* CSS لأزرار الزيادة والتصغير */
+.fill-screen {
+  position: absolute;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  align-items: center;
+  z-index: 999;
+}
+
+.fill-screen {
+  top: 25px;
+  right: 60px;
+}
+
 /* End Latest Business */
 
 /* Start Customers */
@@ -619,7 +710,9 @@ body.menu-open {
 
 .card .img img {
   width: 70%;
-  object-fit: cover;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  mix-blend-mode: color;
   opacity: 80%;
   transition: var(--main-transition);
 }
@@ -764,6 +857,9 @@ body.menu-open {
 
 .articles .container .content .art img {
   width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  mix-blend-mode: color;
   margin-bottom: 10px;
   cursor: pointer;
 }
@@ -1040,6 +1136,7 @@ footer .container .end {
 }
 /* End Scroll To Top */
 
+/* Start Global Role In Business Page And Articles Page (Landing) */
 .land {
   position: relative;
   width: 100%;
@@ -1087,7 +1184,6 @@ footer .container .end {
   height: 2px;
   position: absolute;
   bottom: 0;
-  right: 40px;
   background-color: white;
   transform-origin: right;
   transform: scaleX(0);
@@ -1098,113 +1194,172 @@ footer .container .end {
   transform: scaleX(1);
 }
 
+.land .link1::before {
+  width: 20% !important;
+}
+
 .land .arrow {
   font-size: 30px;
   margin: 0 10px;
 }
 
+/* End Global Role In Business Page And Articles Page (Landing) */
+
+/* Start Latest Business */
+
 .business {
   margin-bottom: calc(var(--main-padding-bottom) * 3);
+  padding-top: var(--main-padding-top);
+  position: relative;
 }
 
-.image-fullscreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+.business .title {
+  justify-content: flex-start;
+}
+
+.business .contant {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin: 0 auto;
+}
+
+.business .container .contant .image {
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
-.image-fullscreen img {
+.business .container .contant .image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto; /* تمكين تعديل الارتفاع تلقائيًا */
+  mix-blend-mode: color;
+  transition: transform 0.3s ease;
+}
+
+.business .container .contant .image:hover img {
+  transform: scale(1.05);
+}
+
+/* تحديد حجم الطبقة بالتزامن مع الصورة وتخفي الزيادة خارج الصورة */
+.business .container .contant .image:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  cursor: pointer;
+  z-index: 10;
+  background: linear-gradient(
+    45deg,
+    rgba(226, 20, 106, 90%),
+    rgba(226, 20, 106, 90%),
+    rgba(226, 20, 106, 90%),
+    rgba(226, 20, 106, 90%),
+    rgba(218, 160, 104, 90%),
+    rgba(218, 160, 104, 90%),
+    rgba(218, 160, 104, 90%),
+    rgba(218, 160, 104, 90%),
+    rgba(218, 160, 104, 90%)
+  );
+  overflow: hidden;
+  object-fit: cover;
 }
 
-.close-button {
+@media (max-width: 767px) {
+  .business .container .image:hover::before,
+  .business .container .image:hover::after {
+    display: none;
+  }
+}
+
+.business .container .contant .image:hover::after {
+  content: "+";
   position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  font-size: 24px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
   color: white;
+  z-index: 11;
+  opacity: 80%;
 }
 
-.pag2 {
-  border-top: 1px solid #a9a2a2;
-}
+/* End Latest Business */
+/* Latest Business */
 
-.articles {
+.articles1 {
+  margin-bottom: 200px;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
   position: relative;
 }
 
-.articles .title {
+.articles1 .container .title {
   justify-content: flex-start;
   margin-bottom: 50px;
 }
 
-.articles .container .content {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 30px;
-}
-
-.articles .container .content .art {
-  width: 25%;
-}
-
-.articles .container .content .art img {
-  width: 100%;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-.articles .container .content .art h4 {
-  margin-bottom: 10px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.articles .container .content .art h4:hover {
-  color: var(--main-color);
-  cursor: pointer;
-}
-
-.articles .container .content .art p {
-  color: #a2a2a2;
-}
-
-.articles .container .content .art p span {
-  cursor: pointer;
-}
-
-.articles .container .content .art p span:hover {
-  color: var(--main-color);
-}
-
-.articles1 {
-  margin-bottom: 200px;
-}
-
-.articles .content1 {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(250px, auto)) !important;
+.articles1 .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, auto));
   gap: 10px;
 }
 
-.articles .content1 .art {
-  width: 100% !important;
-  margin-bottom: 20px;
+.articles1 .content .art {
+  margin-top: 20px;
+}
+
+@media (max-width: 767px) {
+  .articles1 .content .art {
+    border: 1px solid #d8d8d8;
+    padding: 10px;
+    border-radius: 5px;
+  }
+}
+
+.articles1 .content .art {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.articles1 .container .content .art img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  mix-blend-mode: color;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.articles1 .container .content .art h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.articles1 .container .content .art h4:hover {
+  color: var(--main-color);
+}
+
+.articles1 .container .content .art p {
+  color: #a2a2a2;
+}
+
+.articles1 .container .content .art p span {
+  cursor: pointer;
+}
+
+.articles1 .container .content .art p span:hover {
+  color: var(--main-color);
+}
+
+.foot-art,
+.foot-bus {
+  border-top: 1px solid #333;
 }
 
 .pagination {
@@ -1246,3 +1401,10 @@ footer .container .end {
   background-color: #f5a23f;
   color: #fff;
 }
+
+/* 
+اعمل ال landing في الصفحتين 
+اعمل المقالات الي بالصفحة الي لحالهم 
+حط hr فوق ال فوتر بالصفحتين 
+اعمل تكبير الشاشة من الفيديوهات الي بالاخر 
+*/

@@ -110,6 +110,8 @@ const translations = {
     "توقع نجاحك": "توقع نجاحك لإعلانك",
     "الكلمات الرئيسية": "الكلمات الرئيسية في جوجل ",
     ديسمبر: "ديسمبر",
+    "name-input-error": "من فضلك، قم بإدخال اسمك الكامل.",
+    "email-input-error": "من فضلك، قم بإدخال بريدك الإلكتروني.",
   },
   en: {
     الرئيسية: "Home",
@@ -221,6 +223,8 @@ const translations = {
     "توقع نجاحك": "Expect your success to announce you",
     "الكلمات الرئيسية": "Keywords in Google",
     ديسمبر: "December",
+    "name-input-error": "من فضلك، قم بإدخال اسمك الكامل.",
+    "email-input-error": "من فضلك، قم بإدخال بريدك الإلكتروني.",
   },
 };
 
@@ -632,140 +636,3 @@ document.addEventListener("mouseup", dragStop);
 carousel.addEventListener("scroll", infiniteScroll);
 wrapper.addEventListener("mouseleave", autoPlay);
 // End Shufill Images
-
-// Start Full Screen Image
-const modal = document.getElementById("imageModal");
-const closeModal = document.getElementById("closeModal");
-const prevImage = document.getElementById("prevImage");
-const nextImage = document.getElementById("nextImage");
-
-// احصل على عناصر الصورة في العرض الأصلي
-const images = document.querySelectorAll(
-  ".latest-business .container .image img"
-);
-
-let currentImageIndex = 0;
-
-// تكبير الصورة عند النقر
-images.forEach((image, index) => {
-  image.addEventListener("click", () => {
-    modal.style.display = "flex";
-    modalImage.src = image.src;
-    modalImage.alt = image.alt;
-    document.body.style.overflow = "hidden"; // تعطيل التمرير في الخلفية
-    currentImageIndex = index;
-
-    // تطبيق التكبير التدريجي وزيادة الشفافية
-    modalImage.style.transform = "scale(0.8)"; // تصغير بدءًا
-    modalImage.style.opacity = "0"; // شفافية بدءًا
-    setTimeout(() => {
-      modalImage.style.transform = "scale(1.2)"; // تكبير الصورة
-      modalImage.style.opacity = "1"; // زيادة الشفافية
-    }, 0);
-  });
-});
-
-// إغلاق نافذة العرض المكبرة
-closeModal.addEventListener("click", () => {
-  closeModalAnimation();
-});
-
-// إغلاق نافذة العرض المكبرة عند النقر خارج الصورة
-window.addEventListener("click", (event) => {
-  if (event.target === modal) {
-    closeModalAnimation();
-  }
-});
-
-// إغلاق نافذة العرض المكبرة عند الضغط على مفتاح الإسكيب
-window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && modal.style.display === "flex") {
-    closeModalAnimation();
-  }
-});
-
-// التبديل بين الصور باستخدام أزرار الأسهم
-prevImage.addEventListener("click", () => {
-  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-  changeImageAnimation();
-});
-
-nextImage.addEventListener("click", () => {
-  currentImageIndex = (currentImageIndex + 1) % images.length;
-  changeImageAnimation();
-});
-
-// تطبيق انميشن لتغيير الصورة
-function changeImageAnimation() {
-  modalImage.style.transform = "scale(0.8)"; // تصغير
-  modalImage.style.opacity = "0"; // شفافية منخفضة
-  setTimeout(() => {
-    modalImage.src = images[currentImageIndex].src; // تغيير الصورة
-    modalImage.alt = images[currentImageIndex].alt;
-    modalImage.style.transform = "scale(1.2)"; // تكبير الصورة الجديدة
-    modalImage.style.opacity = "1"; // زيادة الشفافية
-  }, 300); // انتظر لحظة بعد تطبيق الانتقال التدريجي للصورة الحالية
-}
-
-// تطبيق انميشن لإغلاق نافذة العرض المكبرة
-function closeModalAnimation() {
-  modalImage.style.transform = "scale(0.8)"; // تصغير
-  modalImage.style.opacity = "0"; // شفافية منخفضة
-  setTimeout(() => {
-    modal.style.display = "none"; // إخفاء النافذة
-    document.body.style.overflow = "auto"; // تمكين التمرير مرة أخرى
-  }, 300); // انتظر لحظة بعد تطبيق الانتقال التدريجي للصورة الحالية
-}
-
-// احصل على عنصر زر الشاشة الكاملة وعنصر الصورة
-const fullscreenButton = document.getElementById("fullscreenButton");
-const modalImage = document.getElementById("modalImage");
-
-// تفعيل وإلغاء وضع الشاشة الكاملة
-let isFullscreen = false;
-
-fullscreenButton.addEventListener("click", () => {
-  if (!isFullscreen) {
-    openFullscreen(modalImage);
-    isFullscreen = true;
-  } else {
-    closeFullscreen();
-    isFullscreen = false;
-  }
-});
-
-// استجابة للضغط على زر "esc" للخروج من وضع الشاشة الكاملة
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && isFullscreen) {
-    closeFullscreen();
-    isFullscreen = false;
-  }
-});
-
-// دالة لفتح وضع الشاشة الكاملة
-function openFullscreen(element) {
-  if (element.requestFullscreen) {
-    element.requestFullscreen();
-  } else if (element.mozRequestFullScreen) {
-    element.mozRequestFullScreen();
-  } else if (element.webkitRequestFullscreen) {
-    element.webkitRequestFullscreen();
-  } else if (element.msRequestFullscreen) {
-    element.msRequestFullscreen();
-  }
-}
-
-// دالة لإغلاق وضع الشاشة الكاملة
-function closeFullscreen() {
-  if (document.exitFullscreen) {
-    document.exitFullscreen();
-  } else if (document.mozCancelFullScreen) {
-    document.mozCancelFullScreen();
-  } else if (document.webkitExitFullscreen) {
-    document.webkitExitFullscreen();
-  } else if (document.msExitFullscreen) {
-    document.msExitFullscreen();
-  }
-}
-
-// End Full Screen Image
